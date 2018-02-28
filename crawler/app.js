@@ -1,21 +1,9 @@
 const {
-    JSDOM,
-} = require('jsdom');
-
-
-const $init = require('jquery');
-
-const url = 'http://www.technopolis.bg/bg//%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D0%BD%D0%B8-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%D0%B8-%D0%B8-%D0%A2%D0%B0%D0%B1%D0%BB%D0%B5%D1%82%D0%B8/%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D0%BD%D0%B8-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%D0%B8/c/P11040101?layout=List&sort=price-asc&pricerange=&pageselect=100&q=%3Aprice-asc';
-
-const extractPageUrls = async () => {
-    const dom = await JSDOM.fromURL(url);
-    const $ = $init(dom.window);
-    const pageLinksSelector = '.paging a';
-    return [...$(pageLinksSelector)].map((link) => $(link))
-        .map(($link) => $link.attr('href'));
-};
+    getAllPageUrls,
+} = require('./getAllPages');
 
 const run = async () => {
-    console.log(await extractPageUrls());
+    const allPageUrls = await getAllPageUrls();
+    console.log(allPageUrls);
 };
 run();
