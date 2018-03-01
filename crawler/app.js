@@ -10,7 +10,7 @@ const {
     makeRequests,
 } = require('./makeRequests');
 
-const allPhones = [];
+let allPhones = [];
 const run = async () => {
     const allPageUrls = await getAllPageUrls();
     let productLinks = await Promise.all(allPageUrls.map((page) => {
@@ -19,6 +19,7 @@ const run = async () => {
     productLinks = [].concat(...productLinks);
 
     await makeRequests(productLinks, allPhones);
-    console.log(allPhones.length);
+    allPhones = [].concat(...allPhones);
+    // console.log(allPhones.length);
 };
 run();

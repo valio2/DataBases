@@ -11,8 +11,8 @@ const makeRequests = async (arr, allPhones) => {
     const phones = await Promise.all(links
         .map((link) => getProductsDetails(link)));
     allPhones.push(phones);
-    console.log(allPhones.length);
-    console.log(arr.length);
+    // console.log(allPhones.length);
+    // console.log(arr.length);
 
 
     await makeRequests(arr, allPhones);
