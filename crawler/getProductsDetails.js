@@ -18,7 +18,6 @@ const getProductsDetails = async (url) => {
         obj[key] = value;
     });
     return obj;
-    // console.log(obj);
 };
 
 module.exports = {

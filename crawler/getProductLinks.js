@@ -3,7 +3,7 @@ const {
 } = require('jsdom');
 const $init = require('jquery');
 
-const getProductsLinks = async (url) => {
+const getProductsLinksTechnopolis = async (url) => {
     const baseLink = 'http://www.technopolis.bg';
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
@@ -17,8 +17,21 @@ const getProductsLinks = async (url) => {
         .map(($link) => baseLink + $link);
 };
 
-const getTechnopolisPhonesLinks = async (link) => {
-    return await getProductsLinks(link);
+const getProductsLinksSmartphones = async (url) => {
+    const dom = await JSDOM.fromURL(url);
+    const $ = $init(dom.window);
+    const productLinksSelector = $('.products li article div:not([class]) a');
+
+    return [...$(productLinksSelector)]
+        .map((link) => $(link).attr('href'))
+        .filter((link) => link.indexOf('smartphone.bg') >= 0);
+};
+
+const getTechnopolisPhonesLinks = async (link, website) => {
+    if (website === 'technopolis') {
+        return await getProductsLinksTechnopolis(link);
+    }
+    return getProductsLinksSmartphones(link);
 };
 // getTechnopolisPhonesLinks();
 
