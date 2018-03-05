@@ -27,14 +27,14 @@ const getProductsLinksSmartphones = async (url) => {
         .filter((link) => link.indexOf('smartphone.bg') >= 0);
 };
 
-const getTechnopolisPhonesLinks = async (link, website) => {
+const getPhonesLinks = async (link, website) => {
     if (website === 'technopolis') {
         return await getProductsLinksTechnopolis(link);
     }
     return getProductsLinksSmartphones(link);
 };
-// getTechnopolisPhonesLinks();
+// getPhonesLinks();
 
 module.exports = {
-    getTechnopolisPhonesLinks,
+    getPhonesLinks,
 };

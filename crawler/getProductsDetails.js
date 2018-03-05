@@ -3,7 +3,7 @@ const {
 } = require('jsdom');
 const $init = require('jquery');
 
-const getProductsDetails = async (url) => {
+const getProductsDetailsTechnopolis = async (url) => {
     const obj = {};
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
@@ -20,6 +20,29 @@ const getProductsDetails = async (url) => {
     return obj;
 };
 
+const getProductsDetailsSmartphone = async (url) => {
+    const obj = {};
+    const dom = await JSDOM.fromURL(url);
+    const $ = $init(dom.window);
+    const productLinksSelector = $('.product-characteristics tbody tr');
+
+    const brand = $('header>h1').text().split(' ')[0].trim();
+    obj.brand = brand;
+
+    [...$(productLinksSelector)].map((row) => {
+        const children = $(row).children().toArray()
+            .map((x) => $(x).text());
+
+        const key = children[0]
+            .replace(/\n|\t/g, '');
+        const value = children[1]
+            .replace(/\n|\t/g, '');
+        obj[key] = value;
+    });
+    return obj;
+};
+
 module.exports = {
-    getProductsDetails,
+    getProductsDetailsTechnopolis,
+    getProductsDetailsSmartphone,
 };

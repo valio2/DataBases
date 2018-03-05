@@ -3,38 +3,58 @@ const {
 } = require('jsdom');
 const $init = require('jquery');
 
-const getProductsLinksTechnopolis = async (url) => {
-    const baseLink = 'http://www.technopolis.bg';
+// const someurl = 'http://www.technopolis.bg/bg//%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D0%BD%D0%B8-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%D0%B8-%D0%B8-%D0%A2%D0%B0%D0%B1%D0%BB%D0%B5%D1%82%D0%B8/%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D0%BD%D0%B8-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%D0%B8/c/P11040101?page=0&pageselect=100&q=:price-asc&text=&layout=List&sort=price-asc';
+// const somewebsite = 'technopolis';
+const someurl = 'https://smartphone.bg/smartphones-all?page=1';
+const somewebsite = 'smartphone.bg';
+
+const getNumberOfPages = async (url, website) => {
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
-    const productLinksSelector = $('.products-list .product-box .box');
 
-    return [...$(productLinksSelector)]
-        .map((link) => $(link)
-            .children(':first')
-            .children(':first')
-            .attr('href'))
-        .map(($link) => baseLink + $link);
-};
-
-const getProductsLinksSmartphones = async (url) => {
-    const dom = await JSDOM.fromURL(url);
-    const $ = $init(dom.window);
-    const productLinksSelector = $('.products li article div:not([class]) a');
-
-    return [...$(productLinksSelector)]
-        .map((link) => $(link).attr('href'))
-        .filter((link) => link.indexOf('smartphone.bg') >= 0);
-};
-
-const getTechnopolisPhonesLinks = async (link, website) => {
     if (website === 'technopolis') {
-        return await getProductsLinksTechnopolis(link);
+        const lastPageUrl = $('.paging li.last');
+
+        if (lastPageUrl) {
+            const numberOfPages = lastPageUrl
+                .children(':last')
+                .attr('href')
+                .match(/page=\d*/)[0]
+                .match(/\d+/)[0];
+            return Number(numberOfPages) + 1;
+        }
+        return null;
     }
-    return getProductsLinksSmartphones(link);
+    let lastPageNumber = $('.pagination')
+        .children()
+        .toArray();
+    lastPageNumber = $(lastPageNumber[lastPageNumber.length - 2]).text();
+        // .siblings(':prev')
+        // .text();
+    console.log(lastPageNumber);
+    return lastPageNumber;
 };
+
+
+const getAllPageUrls = async (startUrl, website) => {
+    const numberOfPages = await getNumberOfPages(startUrl, website);
+
+    const allUrls = Array.from({
+        length: numberOfPages,
+    });
+    allUrls.forEach((_, index) => {
+        if (website === 'technopolis') {
+            allUrls[index] = startUrl.replace(/page=\d*/, 'page=' + index);
+        } else {
+            allUrls[index] = startUrl
+                .replace(/page=\d*/, 'page=' + Number(index + 1));
+        }
+    });
+    return allUrls;
+};
+
 const run = async () => {
-    const links = await getTechnopolisPhonesLinks('https://smartphone.bg/smartphones-all?page=1', 'neshto');
-    console.log(links.length);
+    const allUrls = await getAllPageUrls(someurl, somewebsite);
+    console.log(allUrls);
 };
 run();
