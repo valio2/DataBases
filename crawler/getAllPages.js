@@ -20,10 +20,10 @@ const getNumberOfPages = async (url, website) => {
         }
         return null;
     }
-    let lastPageNumber = $('.pagination')
-        .children()
-        .toArray();
-    lastPageNumber = $(lastPageNumber[lastPageNumber.length - 2]).text();
+    const lastPageNumber = $('.pagination')
+        .children(':last')
+        .siblings(':last')
+        .text();
     return lastPageNumber;
 };
 
