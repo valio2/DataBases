@@ -8,9 +8,9 @@ const makeRequests = (Urls, website) => {
         const accumolator = await acc;
         const result = await Promise.all(data.map((url) => {
             if (website === 'technopolis') {
-                return getProductsDetailsTechnopolis(url);
+                return getProductsDetailsTechnopolis(url, website);
             }
-            return getProductsDetailsSmartphone(url);
+            return getProductsDetailsSmartphone(url, website);
         }));
         return Promise.resolve([...accumolator, ...result]);
     }, Promise.resolve([]));

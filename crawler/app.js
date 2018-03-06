@@ -18,13 +18,11 @@ const website = 'technopolis';
 // let allPhones = [];
 const run = async () => {
     const allPageUrls = await getAllPageUrls(startUrl, website);
-    // console.log(allPageUrls);
     const productLinks = await Promise.all(allPageUrls.map((page) => {
         return getPhonesLinks(page, website);
     }));
-    // console.log(productLinks.length);
-    const result = await makeRequests(productLinks.slice(0, 1), website);
-    console.log(result);
+    const result = await makeRequests(productLinks.splice(0, 1), website);
+    console.log(result[0]);
 
     // productLinks = [].concat(...productLinks);
     // await makeRequests(productLinks, allPhones, website);

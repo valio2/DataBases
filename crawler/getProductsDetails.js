@@ -3,8 +3,10 @@ const {
 } = require('jsdom');
 const $init = require('jquery');
 
-const getProductsDetailsTechnopolis = async (url) => {
-    const obj = {};
+const getProductsDetailsTechnopolis = async (url, website) => {
+    const obj = {
+        website,
+    };
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
     const productLinksSelector = $('.table-characteristics tbody tr');
@@ -44,8 +46,10 @@ const getProductsDetailsTechnopolis = async (url) => {
     return obj;
 };
 
-const getProductsDetailsSmartphone = async (url) => {
-    const obj = {};
+const getProductsDetailsSmartphone = async (url, website) => {
+    const obj = {
+        website,
+    };
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
     const productLinksSelector = $('.product-characteristics tbody tr');
