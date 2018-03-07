@@ -3,37 +3,56 @@ module.exports = (sequelize, DataTypes) => {
   const Phone = sequelize.define('Phone', {
     model: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     cpu: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     ram: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     Dual_sim: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     '4G': {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     Dimensions: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     Warranty: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
     Battery: {
       type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
+      allowNull: false,
+    },
+    Weight: {
+      type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
+      allowNull: false,
+    },
+    Sd_slot: {
+      type: DataTypes.STRING,
+      defaultValue: 'Не е уточнено',
       allowNull: false,
     },
   }, {});
+
   Phone.associate = (models) => {
     // associations can be defined here
     const {

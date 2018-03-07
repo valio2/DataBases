@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Website = sequelize.define('Website', {
     name: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
   }, {});

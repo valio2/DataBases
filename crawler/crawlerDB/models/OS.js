@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const OS = sequelize.define('OS', {
     name: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
   }, {});

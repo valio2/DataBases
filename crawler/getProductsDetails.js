@@ -5,7 +5,7 @@ const $init = require('jquery');
 
 const getProductsDetailsTechnopolis = async (url, website) => {
     const obj = {
-        website,
+        WebsiteId: website,
     };
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
@@ -18,17 +18,17 @@ const getProductsDetailsTechnopolis = async (url, website) => {
         const value = children[1]
             .replace('\n\t\t\t\t\t\t\t\t\t', '');
         if (key === 'Марка') {
-            obj.Brand = value;
+            obj.BrandId = value;
         } else if (key === 'МОДЕЛ') {
-            obj.Model = value;
+            obj.model = value;
         } else if (key === 'ПРОЦЕСОР') {
-            obj.CPU = value;
+            obj.cpu = value;
         } else if (key === 'RAM ПАМЕТ') {
-            obj.RAM = value;
+            obj.ram = value;
         } else if (key === 'ОПЕРАЦИОННА СИСТЕМА') {
-            obj.OS = value;
+            obj.OId = value;
         } else if (key === 'DUAL SIM') {
-            obj['DUAL SIM'] = value;
+            obj.Dual_sim = value;
         } else if (key === 'ТЕГЛО') {
             obj.Weight = value;
         } else if (key === 'РАЗМЕР') {
@@ -48,14 +48,14 @@ const getProductsDetailsTechnopolis = async (url, website) => {
 
 const getProductsDetailsSmartphone = async (url, website) => {
     const obj = {
-        website,
+        WebsiteId: website,
     };
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
     const productLinksSelector = $('.product-characteristics tbody tr');
 
-    const brand = $('header>h1').text().split(' ')[0].trim();
-    obj.Brand = brand;
+    const BrandId = $('header>h1').text().split(' ')[0].trim();
+    obj.BrandId = BrandId;
 
     [...$(productLinksSelector)].map((row) => {
         const children = $(row).children().toArray()
@@ -66,15 +66,15 @@ const getProductsDetailsSmartphone = async (url, website) => {
         const value = children[1]
             .replace(/\n|\t/g, '');
         if (key === 'Серия') {
-            obj.Model = value;
+            obj.model = value;
         } else if (key === 'Процесор') {
-            obj.CPU = value;
+            obj.cpu = value;
         } else if (key === 'Оперативна памет') {
-            obj.RAM = value;
+            obj.ram = value;
         } else if (key === 'Операционна система') {
-            obj.OS = value;
+            obj.OId = value;
         } else if (key === '2 сим карти') {
-            obj['DUAL SIM'] = value;
+            obj.Dual_sim = value;
         } else if (key === 'Тегло') {
             obj.Weight = value;
         } else if (key === 'Размери (Ш/В/Д)') {
