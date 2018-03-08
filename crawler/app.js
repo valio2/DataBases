@@ -14,21 +14,21 @@ const {
     insertPhoneToDB,
 } = require('./insert-into-db');
 
-// let allPhones = [];
 const run = async (startUrl, website) => {
+    // let allPhones = [];
     const allPageUrls = await getAllPageUrls(startUrl, website);
 
-    const productLinks = await Promise.all(allPageUrls.map((page) => {
+    let productLinks = await Promise.all(allPageUrls.map((page) => {
         return getPhonesLinks(page, website);
     }));
 
-    const result = await makeRequests(productLinks, website);
-    console.log(result.length);
+    // const result = await makeRequests(productLinks, website);
+    // console.log(result.length);
 
-    // productLinks = [].concat(...productLinks);
-    // await makeRequests(productLinks, allPhones, website);
-    // allPhones = [].concat(...allPhones);
-    // console.log(allPhones.length);
+    productLinks = [].concat(...productLinks);
+    let allPhones = await makeRequests(productLinks, [], website);
+    allPhones = [].concat(...allPhones);
+    console.log(allPhones.length);
 
     // result.forEach((phone) => insertPhoneToDB(phone));
 };
