@@ -27,7 +27,7 @@ const makeRequests = async (arr, allPhones, website) => {
     let phones;
     if (website === 'technopolis') {
         phones = await Promise.all(links
-            .map((link) => getProductsDetailsTechnopolis(link)));
+            .map((link) => getProductsDetailsTechnopolis(link, website)));
     } else {
         phones = await Promise.all(links
             .map((link) => getProductsDetailsSmartphone(link, website)));

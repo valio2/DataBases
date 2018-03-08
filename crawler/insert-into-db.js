@@ -3,6 +3,7 @@ const {
     OS,
     Phone,
     Website,
+    ram,
 } = require('./crawlerDB/models');
 
 const insertPhoneToDB = async (phone) => {
@@ -27,9 +28,17 @@ const insertPhoneToDB = async (phone) => {
     });
     brandId = brandId[0].dataValues.id;
 
+    let ramId = await ram.findCreateFind({
+        where: {
+            name: phone.RamId,
+        },
+    });
+    ramId = ramId[0].dataValues.id;
+
     phone.WebsiteId = websiteId;
     phone.BrandId = brandId;
     phone.OId = OsId;
+    phone.ramId = ramId;
 
     await Phone.create(phone);
     console.log('Phone added');

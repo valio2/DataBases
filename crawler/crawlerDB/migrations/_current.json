@@ -73,13 +73,6 @@
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
-                "ram": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
                 "Dual_sim": {
                     "defaultValue": {
                         "value": "Не е уточнено"
@@ -166,6 +159,41 @@
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
                     "seqType": "Sequelize.INTEGER"
+                },
+                "ramId": {
+                    "allowNull": false,
+                    "references": {
+                        "model": "rams",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "rams": {
+            "tableName": "rams",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "unique": true,
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
                 }
             },
             "indexes": []
@@ -196,5 +224,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 4
 }

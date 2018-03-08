@@ -11,11 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'Не е уточнено',
       allowNull: false,
     },
-    ram: {
-      type: DataTypes.STRING,
-      defaultValue: 'Не е уточнено',
-      allowNull: false,
-    },
     Dual_sim: {
       type: DataTypes.STRING,
       defaultValue: 'Не е уточнено',
@@ -59,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       Website,
       Brand,
       OS,
+      ram,
     } = models;
 
     Phone.belongsTo(Website, {
@@ -74,6 +70,12 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
     });
     Phone.belongsTo(OS, {
+      foreignKey: {
+        allowNull: false,
+      },
+      onDelete: 'CASCADE',
+    });
+    Phone.belongsTo(ram, {
       foreignKey: {
         allowNull: false,
       },
