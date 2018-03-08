@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "update": "node ./app.js",
-    "statistics": "node ./test.js"
+    "statistics": "node ./test.js > output.txt"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,8 @@
     "babel-eslint": "^8.2.2",
     "eslint": "^4.18.1",
     "jquery": "^3.3.1",
-    "jsdom": "^11.6.2"
+    "jsdom": "^11.6.2",
+    "mysql-query": "^2.0.0"
   },
   "devDependencies": {
     "eslint-config-google": "^0.9.1"

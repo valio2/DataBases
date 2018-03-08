@@ -1,10 +1,13 @@
 const {
     Brand,
-    OS,
     Phone,
     Website,
-    ram,
+    Characteristics,
 } = require('./crawlerDB/models');
+
+const nonCharacteristics = ['model', 'Dimensions',
+    'Price', 'WebsiteId', 'BrandId',
+];
 
 const insertPhoneToDB = async (phone) => {
     let websiteId = await Website.findCreateFind({
@@ -14,13 +17,6 @@ const insertPhoneToDB = async (phone) => {
     });
     websiteId = websiteId[0].dataValues.id;
 
-    let OsId = await OS.findCreateFind({
-        where: {
-            name: phone.OId,
-        },
-    });
-    OsId = OsId[0].dataValues.id;
-
     let brandId = await Brand.findCreateFind({
         where: {
             name: phone.BrandId,
@@ -28,19 +24,28 @@ const insertPhoneToDB = async (phone) => {
     });
     brandId = brandId[0].dataValues.id;
 
-    let ramId = await ram.findCreateFind({
-        where: {
-            name: phone.RamId,
-        },
-    });
-    ramId = ramId[0].dataValues.id;
-
     phone.WebsiteId = websiteId;
     phone.BrandId = brandId;
-    phone.OId = OsId;
-    phone.ramId = ramId;
 
-    await Phone.create(phone);
+
+    const keys = Object.keys(phone);
+    let charIds = await Promise.all(keys.map(async (key) => {
+        if (nonCharacteristics.indexOf(key) < 0) {
+            const charId = await Characteristics.findCreateFind({
+                where: {
+                    name: key,
+                    value: phone[key],
+                },
+            });
+            return charId[0].dataValues.id;
+        }
+        return null;
+    }));
+    charIds = charIds.filter((ele) => ele !== null);
+
+    const phoneInDB = await Phone.create(phone);
+    await phoneInDB.setCharacteristics(charIds);
+
     console.log('Phone added');
 };
 
