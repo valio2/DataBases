@@ -5,24 +5,26 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * createTable "Os", deps: []
  * createTable "Brands", deps: []
+ * createTable "Characteristics", deps: []
  * createTable "Websites", deps: []
- * createTable "Phones", deps: [Websites, Brands, Os]
+ * createTable "Phones", deps: [Websites, Brands]
+ * createTable "phonesCharacteristics", deps: [Characteristics, Phones]
+ * addIndex ["name","value"] to table "Characteristics"
  *
  **/
 
 var info = {
     "revision": 1,
-    "name": "neshto",
-    "created": "2018-03-06T15:42:30.920Z",
+    "name": "created",
+    "created": "2018-03-08T19:31:53.502Z",
     "comment": ""
 };
 
 var migrationCommands = [{
         fn: "createTable",
         params: [
-            "Os",
+            "Brands",
             {
                 "id": {
                     "type": Sequelize.INTEGER,
@@ -32,7 +34,8 @@ var migrationCommands = [{
                 },
                 "name": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -49,7 +52,7 @@ var migrationCommands = [{
     {
         fn: "createTable",
         params: [
-            "Brands",
+            "Characteristics",
             {
                 "id": {
                     "type": Sequelize.INTEGER,
@@ -58,6 +61,10 @@ var migrationCommands = [{
                     "allowNull": false
                 },
                 "name": {
+                    "type": Sequelize.STRING,
+                    "allowNull": false
+                },
+                "value": {
                     "type": Sequelize.STRING,
                     "allowNull": false
                 },
@@ -86,7 +93,8 @@ var migrationCommands = [{
                 },
                 "name": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -113,35 +121,18 @@ var migrationCommands = [{
                 },
                 "model": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
-                },
-                "cpu": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
-                },
-                "ram": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
-                },
-                "Dual_sim": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
-                },
-                "4G": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "defaultValue": "Не е уточнено"
                 },
                 "Dimensions": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "allowNull": false,
+                    "defaultValue": "Не е уточнено"
                 },
-                "Warranty": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
-                },
-                "Battery": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
+                "Price": {
+                    "type": Sequelize.INTEGER,
+                    "allowNull": false,
+                    "defaultValue": 0
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -170,19 +161,55 @@ var migrationCommands = [{
                         "key": "id"
                     },
                     "allowNull": false
+                }
+            },
+            {}
+        ]
+    },
+    {
+        fn: "createTable",
+        params: [
+            "phonesCharacteristics",
+            {
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
                 },
-                "OId": {
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
+                },
+                "CharacteristicId": {
                     "type": Sequelize.INTEGER,
                     "onUpdate": "CASCADE",
                     "onDelete": "CASCADE",
                     "references": {
-                        "model": "Os",
+                        "model": "Characteristics",
                         "key": "id"
                     },
-                    "allowNull": false
+                    "primaryKey": true
+                },
+                "PhoneId": {
+                    "type": Sequelize.INTEGER,
+                    "onUpdate": "CASCADE",
+                    "onDelete": "CASCADE",
+                    "references": {
+                        "model": "Phones",
+                        "key": "id"
+                    },
+                    "primaryKey": true
                 }
             },
             {}
+        ]
+    },
+    {
+        fn: "addIndex",
+        params: [
+            "Characteristics", ["name", "value"],
+            {
+                "indicesType": "UNIQUE"
+            }
         ]
     }
 ];

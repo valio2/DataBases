@@ -1,30 +1,5 @@
 {
     "tables": {
-        "Os": {
-            "tableName": "Os",
-            "schema": {
-                "id": {
-                    "allowNull": false,
-                    "primaryKey": true,
-                    "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "name": {
-                    "unique": true,
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                }
-            },
-            "indexes": []
-        },
         "Brands": {
             "tableName": "Brands",
             "schema": {
@@ -50,6 +25,45 @@
             },
             "indexes": []
         },
+        "Characteristics": {
+            "tableName": "Characteristics",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING"
+                },
+                "value": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": {
+                "8a08db76c53d1c65c6364e435c0aace429c97069": {
+                    "unique": true,
+                    "fields": [
+                        "name",
+                        "value"
+                    ],
+                    "options": {
+                        "indicesType": "UNIQUE"
+                    }
+                }
+            }
+        },
         "Phones": {
             "tableName": "Phones",
             "schema": {
@@ -66,27 +80,6 @@
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
-                "cpu": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "Dual_sim": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "4G": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
                 "Dimensions": {
                     "defaultValue": {
                         "value": "Не е уточнено"
@@ -94,33 +87,12 @@
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
-                "Warranty": {
+                "Price": {
                     "defaultValue": {
-                        "value": "Не е уточнено"
+                        "value": 0
                     },
                     "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "Battery": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "Weight": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "Sd_slot": {
-                    "defaultValue": {
-                        "value": "Не е уточнено"
-                    },
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "createdAt": {
                     "allowNull": false,
@@ -149,51 +121,6 @@
                     "onDelete": "CASCADE",
                     "onUpdate": "CASCADE",
                     "seqType": "Sequelize.INTEGER"
-                },
-                "OId": {
-                    "allowNull": false,
-                    "references": {
-                        "model": "Os",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "ramId": {
-                    "allowNull": false,
-                    "references": {
-                        "model": "rams",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
-                }
-            },
-            "indexes": []
-        },
-        "rams": {
-            "tableName": "rams",
-            "schema": {
-                "id": {
-                    "allowNull": false,
-                    "primaryKey": true,
-                    "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "name": {
-                    "unique": true,
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
                 }
             },
             "indexes": []
@@ -222,7 +149,41 @@
                 }
             },
             "indexes": []
+        },
+        "phonesCharacteristics": {
+            "tableName": "phonesCharacteristics",
+            "schema": {
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "CharacteristicId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Characteristics",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "PhoneId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Phones",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
         }
     },
-    "revision": 4
+    "revision": 1
 }
