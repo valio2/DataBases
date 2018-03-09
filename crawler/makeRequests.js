@@ -22,7 +22,7 @@ const makeRequests = async (arr, allPhones, website) => {
     if (arr.length === 0) {
         return allPhones;
     }
-    const count = 40;
+    const count = 30;
     const links = arr.splice(0, count);
     let phones;
     if (website === 'technopolis') {

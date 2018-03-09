@@ -9,7 +9,7 @@ const nonCharacteristics = ['model', 'Dimensions',
     'Price', 'WebsiteId', 'BrandId',
 ];
 
-const insertPhoneToDB = async (phone) => {
+const insertPhoneToDB = async (phone, insertedPhonesCounter) => {
     let websiteId = await Website.findCreateFind({
         where: {
             name: phone.WebsiteId,
@@ -46,7 +46,7 @@ const insertPhoneToDB = async (phone) => {
     const phoneInDB = await Phone.create(phone);
     await phoneInDB.setCharacteristics(charIds);
 
-    console.log('Phone added');
+    console.log('Phone added ' + '(' + phoneInDB.id + ')');
 };
 
 module.exports = {

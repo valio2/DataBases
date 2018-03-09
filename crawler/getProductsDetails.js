@@ -49,8 +49,8 @@ const getProductsDetailsTechnopolis = async (url, website) => {
         });
         return obj;
     } catch (error) {
-        console.log('Phone was not added ' + url);
-        // console.log(error);
+        // console.log('Phone was not added ' + url);
+        console.log(error);
         return null;
     }
 };

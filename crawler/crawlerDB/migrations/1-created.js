@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable */
 
 var Sequelize = require('sequelize');
 
