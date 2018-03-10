@@ -3,7 +3,7 @@ const {
     Phone,
     Website,
     Characteristics,
-} = require('./crawlerDB/models');
+} = require('../crawlerDB/models');
 
 const nonCharacteristics = ['model', 'Dimensions',
     'Price', 'WebsiteId', 'BrandId',

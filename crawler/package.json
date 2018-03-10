@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "update": "node ./app.js",
-    "statistics": "node ./test.js > output.txt"
+    "update": "node ./app/app.js",
+    "statistics": "node ./Commands/statistics.js > output.txt"
   },
   "keywords": [],
   "author": "",

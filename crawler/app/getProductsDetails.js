@@ -11,8 +11,8 @@ const getProductsDetailsTechnopolis = async (url, website) => {
         const dom = await JSDOM.fromURL(url);
         const $ = $init(dom.window);
         const productLinksSelector = $('.table-characteristics tbody tr');
-        const price = $('tbody tr .new-price .priceValue').text();
-        obj.Price = price;
+        const price = $('tbody tr .new-price .priceValue').text().replace(' ', '');
+        obj.Price = Number(price);
 
         [...$(productLinksSelector)].map((row) => {
             const children = $(row).children().toArray()
@@ -65,7 +65,7 @@ const getProductsDetailsSmartphone = async (url, website) => {
         const productLinksSelector = $('.product-characteristics tbody tr');
 
         const price = $('.price-container').attr('data-original-price');
-        obj.Price = price;
+        obj.Price = Number(price);
 
         const BrandId = $('header>h1').text().split(' ')[0].trim();
         obj.BrandId = BrandId;

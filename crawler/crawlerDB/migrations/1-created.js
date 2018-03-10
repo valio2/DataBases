@@ -1,5 +1,4 @@
 'use strict';
-/* eslint-disable */
 
 var Sequelize = require('sequelize');
 
@@ -10,7 +9,7 @@ var Sequelize = require('sequelize');
  * createTable "Characteristics", deps: []
  * createTable "Websites", deps: []
  * createTable "Phones", deps: [Websites, Brands]
- * createTable "phonesCharacteristics", deps: [Characteristics, Phones]
+ * createTable "phonesCharacteristics", deps: [Phones, Characteristics]
  * addIndex ["name","value"] to table "Characteristics"
  *
  **/
@@ -18,7 +17,7 @@ var Sequelize = require('sequelize');
 var info = {
     "revision": 1,
     "name": "created",
-    "created": "2018-03-08T19:31:53.502Z",
+    "created": "2018-03-10T19:36:07.348Z",
     "comment": ""
 };
 
@@ -172,12 +171,16 @@ var migrationCommands = [{
         params: [
             "phonesCharacteristics",
             {
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
+                "PhoneId": {
+                    "type": Sequelize.INTEGER,
+                    "onUpdate": "CASCADE",
+                    "onDelete": "CASCADE",
+                    "references": {
+                        "model": "Phones",
+                        "key": "id"
+                    },
+                    "unique": "phonesCharacteristics_PhoneId_CharacteristicId_unique",
+                    "primaryKey": true,
                     "allowNull": false
                 },
                 "CharacteristicId": {
@@ -188,17 +191,17 @@ var migrationCommands = [{
                         "model": "Characteristics",
                         "key": "id"
                     },
-                    "primaryKey": true
+                    "unique": "phonesCharacteristics_PhoneId_CharacteristicId_unique",
+                    "primaryKey": true,
+                    "allowNull": false
                 },
-                "PhoneId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Phones",
-                        "key": "id"
-                    },
-                    "primaryKey": true
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
+                },
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "allowNull": false
                 }
             },
             {}

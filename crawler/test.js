@@ -1,17 +1,18 @@
 const {
     Brand,
-    Characteristicss,
     Phone,
     Website,
+    Characteristics,
+    phonesCharacteristics,
 } = require('./crawlerDB/models');
-const $ = require('jquery');
 
-
-const command = process.argv[2].split(':');
-console.log(command);
-
-if (command[0] === 'order-by-price') {
-    $.ajax({
-
+const run = async () => {
+    let chars = await phonesCharacteristics.findAll({
+        where: {
+            PhoneId: 3,
+        },
     });
-}
+    chars = chars.map((char) => char.CharacteristicId);
+    console.log(chars);
+};
+run();

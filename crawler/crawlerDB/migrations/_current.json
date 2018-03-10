@@ -153,16 +153,22 @@
         "phonesCharacteristics": {
             "tableName": "phonesCharacteristics",
             "schema": {
-                "createdAt": {
+                "PhoneId": {
                     "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
+                    "primaryKey": true,
+                    "unique": "phonesCharacteristics_PhoneId_CharacteristicId_unique",
+                    "references": {
+                        "model": "Phones",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "CharacteristicId": {
+                    "allowNull": false,
                     "primaryKey": true,
+                    "unique": "phonesCharacteristics_PhoneId_CharacteristicId_unique",
                     "references": {
                         "model": "Characteristics",
                         "key": "id"
@@ -171,15 +177,13 @@
                     "onUpdate": "CASCADE",
                     "seqType": "Sequelize.INTEGER"
                 },
-                "PhoneId": {
-                    "primaryKey": true,
-                    "references": {
-                        "model": "Phones",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
                 }
             },
             "indexes": []
