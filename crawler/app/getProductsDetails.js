@@ -5,13 +5,15 @@ const $init = require('jquery');
 
 const getProductsDetailsTechnopolis = async (url, website) => {
     const obj = {
-        WebsiteId: website,
+        Website: website,
     };
     try {
         const dom = await JSDOM.fromURL(url);
         const $ = $init(dom.window);
         const productLinksSelector = $('.table-characteristics tbody tr');
-        const price = $('tbody tr .new-price .priceValue').text().replace(' ', '');
+        const price = $('tbody tr .new-price .priceValue')
+            .text()
+            .replace(' ', '');
         obj.Price = Number(price);
 
         [...$(productLinksSelector)].map((row) => {
@@ -19,18 +21,19 @@ const getProductsDetailsTechnopolis = async (url, website) => {
                 .map((x) => $(x).text());
             const key = children[0];
             let value = children[1]
-                .replace('\n\t\t\t\t\t\t\t\t\t', '');
+                .replace('\n\t\t\t\t\t\t\t\t\t', '')
+                .toLowerCase();
             if (key === 'Марка') {
-                obj.BrandId = value;
+                obj.Brand = value;
             } else if (key === 'МОДЕЛ') {
-                obj.model = value;
+                obj.Model = value;
             } else if (key === 'ПРОЦЕСОР') {
-                obj.cpu = value;
+                obj.Cpu = value;
             } else if (key === 'RAM ПАМЕТ') {
                 value = value.replace(' ', '');
-                obj.RamId = value;
+                obj.Ram = value;
             } else if (key === 'ОПЕРАЦИОННА СИСТЕМА') {
-                obj.OId = value;
+                obj.Os = value;
             } else if (key === 'DUAL SIM') {
                 obj.Dual_sim = value;
             } else if (key === 'ТЕГЛО') {
@@ -49,15 +52,15 @@ const getProductsDetailsTechnopolis = async (url, website) => {
         });
         return obj;
     } catch (error) {
-        // console.log('Phone was not added ' + url);
-        console.log(error);
+        console.log('Phone was not added ' + url);
+        // console.log(error);
         return null;
     }
 };
 
 const getProductsDetailsSmartphone = async (url, website) => {
     const obj = {
-        WebsiteId: website,
+        Website: website,
     };
     try {
         const dom = await JSDOM.fromURL(url);
@@ -68,7 +71,7 @@ const getProductsDetailsSmartphone = async (url, website) => {
         obj.Price = Number(price);
 
         const BrandId = $('header>h1').text().split(' ')[0].trim();
-        obj.BrandId = BrandId;
+        obj.Brand = BrandId;
 
         [...$(productLinksSelector)].map((row) => {
             const children = $(row).children().toArray()
@@ -77,15 +80,16 @@ const getProductsDetailsSmartphone = async (url, website) => {
             const key = children[0]
                 .replace(/\n|\t/g, '');
             const value = children[1]
-                .replace(/\n|\t/g, '');
+                .replace(/\n|\t/g, '')
+                .toLowerCase();
             if (key === 'Серия') {
-                obj.model = value;
+                obj.Model = value;
             } else if (key === 'Процесор') {
-                obj.cpu = value;
+                obj.Cpu = value;
             } else if (key === 'Оперативна памет') {
-                obj.RamId = value;
+                obj.Ram = value;
             } else if (key === 'Операционна система') {
-                obj.OId = value;
+                obj.Os = value;
             } else if (key === '2 сим карти') {
                 obj.Dual_sim = value;
             } else if (key === 'Тегло') {

@@ -5,10 +5,8 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * createTable "Brands", deps: []
  * createTable "Characteristics", deps: []
- * createTable "Websites", deps: []
- * createTable "Phones", deps: [Websites, Brands]
+ * createTable "Phones", deps: []
  * createTable "phonesCharacteristics", deps: [Phones, Characteristics]
  * addIndex ["name","value"] to table "Characteristics"
  *
@@ -17,39 +15,11 @@ var Sequelize = require('sequelize');
 var info = {
     "revision": 1,
     "name": "created",
-    "created": "2018-03-10T19:36:07.348Z",
+    "created": "2018-03-11T14:14:01.099Z",
     "comment": ""
 };
 
 var migrationCommands = [{
-        fn: "createTable",
-        params: [
-            "Brands",
-            {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
-                },
-                "name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false,
-                    "unique": true
-                },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                }
-            },
-            {}
-        ]
-    },
-    {
         fn: "createTable",
         params: [
             "Characteristics",
@@ -83,34 +53,6 @@ var migrationCommands = [{
     {
         fn: "createTable",
         params: [
-            "Websites",
-            {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
-                },
-                "name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false,
-                    "unique": true
-                },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                }
-            },
-            {}
-        ]
-    },
-    {
-        fn: "createTable",
-        params: [
             "Phones",
             {
                 "id": {
@@ -119,7 +61,7 @@ var migrationCommands = [{
                     "primaryKey": true,
                     "allowNull": false
                 },
-                "model": {
+                "Model": {
                     "type": Sequelize.STRING,
                     "allowNull": false,
                     "defaultValue": "Не е уточнено"
@@ -140,26 +82,6 @@ var migrationCommands = [{
                 },
                 "updatedAt": {
                     "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "WebsiteId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Websites",
-                        "key": "id"
-                    },
-                    "allowNull": false
-                },
-                "BrandId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Brands",
-                        "key": "id"
-                    },
                     "allowNull": false
                 }
             },

@@ -1,33 +1,13 @@
 const {
-    Brand,
     Phone,
-    Website,
     Characteristics,
 } = require('../crawlerDB/models');
 
-const nonCharacteristics = ['model', 'Dimensions',
-    'Price', 'WebsiteId', 'BrandId',
+const nonCharacteristics = [
+    'model', 'Dimensions', 'Price',
 ];
 
 const insertPhoneToDB = async (phone, insertedPhonesCounter) => {
-    let websiteId = await Website.findCreateFind({
-        where: {
-            name: phone.WebsiteId,
-        },
-    });
-    websiteId = websiteId[0].dataValues.id;
-
-    let brandId = await Brand.findCreateFind({
-        where: {
-            name: phone.BrandId,
-        },
-    });
-    brandId = brandId[0].dataValues.id;
-
-    phone.WebsiteId = websiteId;
-    phone.BrandId = brandId;
-
-
     const keys = Object.keys(phone);
     let charIds = await Promise.all(keys.map(async (key) => {
         if (nonCharacteristics.indexOf(key) < 0) {

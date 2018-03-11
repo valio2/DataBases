@@ -1,30 +1,5 @@
 {
     "tables": {
-        "Brands": {
-            "tableName": "Brands",
-            "schema": {
-                "id": {
-                    "allowNull": false,
-                    "primaryKey": true,
-                    "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "name": {
-                    "unique": true,
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                }
-            },
-            "indexes": []
-        },
         "Characteristics": {
             "tableName": "Characteristics",
             "schema": {
@@ -73,7 +48,7 @@
                     "autoIncrement": true,
                     "seqType": "Sequelize.INTEGER"
                 },
-                "model": {
+                "Model": {
                     "defaultValue": {
                         "value": "Не е уточнено"
                     },
@@ -93,51 +68,6 @@
                     },
                     "allowNull": false,
                     "seqType": "Sequelize.INTEGER"
-                },
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "WebsiteId": {
-                    "allowNull": false,
-                    "references": {
-                        "model": "Websites",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "BrandId": {
-                    "allowNull": false,
-                    "references": {
-                        "model": "Brands",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
-                }
-            },
-            "indexes": []
-        },
-        "Websites": {
-            "tableName": "Websites",
-            "schema": {
-                "id": {
-                    "allowNull": false,
-                    "primaryKey": true,
-                    "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "name": {
-                    "unique": true,
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
                 },
                 "createdAt": {
                     "allowNull": false,
