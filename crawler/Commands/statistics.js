@@ -75,7 +75,19 @@ const run = async () => {
             });
             if (command[2] === 'gt') {
                 chars = chars.map((char) => {
-                    const value = char.value.match(/\d+/);
+                    let value = char.value;
+                    if (command[1].toLowerCase().indexOf('ram') >= 0) {
+                        if (command[3].toLowerCase().indexOf('mb') >= 0) {
+                            if (value.indexOf('gb') >= 0) {
+                                return char.id;
+                            }
+                        } else {
+                            if (value.indexOf('mb') >= 0 || value === 'не') {
+                                return null;
+                            }
+                        }
+                    }
+                    value = value.match(/\d+/);
                     const compare = Number(command[3].match(/\d+/)[0]);
                     if (value !== null) {
                         if (value >= compare) {
@@ -86,7 +98,19 @@ const run = async () => {
                 });
             } else if (command[2] === 'lt') {
                 chars = chars.map((char) => {
-                    const value = char.value.match(/\d+/);
+                    let value = char.value;
+                    if (command[1].toLowerCase().indexOf('ram') >= 0) {
+                        if (command[3].toLowerCase().indexOf('gb') >= 0) {
+                            if (value.indexOf('mb') >= 0 || value.indexOf('не') >= 0) {
+                                return char.id;
+                            }
+                        } else {
+                            if (value.indexOf('gb') >= 0) {
+                                return null;
+                            }
+                        }
+                    }
+                    value = value.match(/\d+/);
                     const compare = Number(command[3].match(/\d+/)[0]);
                     if (value !== null) {
                         if (value < compare) {
