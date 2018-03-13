@@ -6,7 +6,6 @@ const {
 const {
     buildPhoneCharacteristics,
 } = require('./buildPhoneCharacteristics');
-require('console.table');
 
 const findPhonesWithCharacteristics = async (chars) => {
     const phoneIds = await phonesCharacteristics.findAll({

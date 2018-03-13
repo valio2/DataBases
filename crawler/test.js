@@ -1,4 +1,4 @@
-require('console.table');
+// require('console.table');
 const obj = {
     model: '1054d black',
     Price: 49,
