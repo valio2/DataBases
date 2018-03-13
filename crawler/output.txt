@@ -1,223 +1,56 @@
-{ model: '1054d black',
-  Price: 49,
-  Website: 'technopolis',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  Battery: 'li-ion 800 mah',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Brand: 'alcatel',
-  Model: '1054d black',
-  Ram: '4mb',
-  Dimensions: '108x45x12.7 mm' }
-{ model: '130 black 2017',
-  Price: 55,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Ram: '4mb',
-  Dual_sim: 'не',
-  Model: '130 black 2017',
-  Weight: '95 g',
-  Battery: 'li-ion 1020 mah',
-  Dimensions: '111.5x48.4x14.2mm' }
-{ model: '130 black 2017 dual sim',
-  Price: 55,
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  Website: 'technopolis',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Ram: '4mb',
-  Weight: '95 g',
-  Battery: 'li-ion 1020 mah',
-  Model: '130 black 2017 dual sim',
-  Dimensions: '111.5x48.4x14.2mm' }
-{ model: '216 black',
-  Price: 79,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Dual_sim: 'не',
-  Battery: 'li-ion 1020 mah',
-  Model: '216 black',
-  Ram: '16mb',
-  Weight: '82.6g',
-  Dimensions: '118x50.2 mm' }
-{ model: '216 black dual sim',
-  Price: 79,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Dual_sim: 'да',
-  Battery: 'li-ion 1020 mah',
-  Ram: '16mb',
-  Weight: '82.6g',
-  Model: '216 black dual sim',
-  Dimensions: '118x50.2 mm' }
-{ model: '3310 ds dark blue',
-  Price: 89,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Model: '3310 ds dark blue',
-  Weight: '79.6g',
-  Battery: 'li-ion 1200 mah',
-  Ram: '16mb',
-  Dimensions: '115.6x51x12.8mm' }
-{ model: '3310 dark blue',
-  Price: 89,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Ram: '16mb',
-  Weight: '79.6g',
-  Battery: 'li-ion 1200 mah',
-  Model: '3310 dark blue',
-  Dimensions: '115.6x51x12.8mm' }
-{ model: '3310 ds warm red',
-  Price: 89,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Ram: '16mb',
-  Weight: '79.6g',
-  Os: 'не',
-  Battery: 'li-ion 1200 mah',
-  Model: '3310 ds warm red',
-  Dimensions: '115.6x51x12.8mm' }
-{ model: '3310 ds dark yellow',
-  Price: 89,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  '4G': 'не',
-  Ram: '16mb',
-  Weight: '79.6g',
-  Battery: 'li-ion 1200 mah',
-  Warranty: '24 месеца',
-  Model: '3310 ds dark yellow',
-  Dimensions: '115.6x51x12.8mm' }
-{ model: '230 dark silver dual sim',
-  Price: 109,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  '4G': 'не',
-  Ram: '16mb',
-  Battery: 'li-ion 1200 mah',
-  Model: '230 dark silver dual sim',
-  Warranty: '24 месеца',
-  Weight: '91.8 g',
-  Dimensions: '124.6x53.4x10.9mm' }
-{ model: '230 silver dual sim',
-  Price: 109,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Dual_sim: 'да',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Ram: '16mb',
-  Cpu: 'не',
-  Battery: 'li-ion 1200 mah',
-  Weight: '91.8 g',
-  Model: '230 silver dual sim',
-  Dimensions: '124.6x53.4x10.9mm' }
-{ model: '230 dark silver',
-  Price: 109,
-  Website: 'technopolis',
-  Cpu: 'не',
-  Os: 'не',
-  Warranty: '24 месеца',
-  Brand: 'nokia',
-  Dual_sim: 'не',
-  Ram: '16mb',
-  Battery: 'li-ion 1200 mah',
-  Weight: '91.8 g',
-  '4G': 'не',
-  Model: '230 dark silver',
-  Dimensions: '124.6x53.4x10.9mm' }
-{ model: '230 silver',
-  Price: 109,
-  Website: 'technopolis',
-  Brand: 'nokia',
-  Cpu: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Dual_sim: 'не',
-  Os: 'не',
-  Battery: 'li-ion 1200 mah',
-  Weight: '91.8 g',
-  Model: '230 silver',
-  Ram: '16mb',
-  Dimensions: '124.6x53.4x10.9mm' }
-{ model: '2008g black',
-  Price: 79,
-  Website: 'technopolis',
-  Cpu: 'не',
-  Os: 'не',
-  '4G': 'не',
-  Brand: 'alcatel',
-  Dual_sim: 'не',
-  Warranty: '24 месеца',
-  Ram: '8mb',
-  Weight: '90 g',
-  Battery: 'li-ion 1400 mah',
-  Model: '2008g black',
-  Dimensions: '108x45x12.7 mm' }
-{ model: '2051d silver',
-  Price: 99,
-  Dual_sim: 'да',
-  Cpu: 'не',
-  Os: 'не',
-  Website: 'technopolis',
-  '4G': 'не',
-  Brand: 'alcatel',
-  Ram: '8mb',
-  Model: '2051d silver',
-  Warranty: '24 месеца',
-  Battery: 'li-ion 750 mah',
-  Weight: '97 g',
-  Dimensions: '105.7x52.5x17.25 mm' }
-{ model: '2051d white',
-  Price: 99,
-  Website: 'technopolis',
-  Dual_sim: 'да',
-  Os: 'не',
-  Warranty: '24 месеца',
-  '4G': 'не',
-  Brand: 'alcatel',
-  Cpu: 'не',
-  Ram: '8mb',
-  Battery: 'li-ion 750 mah',
-  Weight: '97 g',
-  Model: '2051d white',
-  Dimensions: '105.7x52.5x17.25 mm' }
+model                          Price  Sd_slot  Website        Dual_sim  4G  Ram  Brand  Os          Warranty                                                                           Cpu                                                     Weight     Battery          Model                          Dimensions           
+-----------------------------  -----  -------  -------------  --------  --  ---  -----  ----------  ---------------------------------------------------------------------------------  ------------------------------------------------------  ---------  ---------------  -----------------------------  ---------------------
+iphone x                       2299   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  174 грама  2716 mah         iphone x                       70.9 x 143.6 x 7.7 мм
+iphone x                       2630   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  174 грама  2716 mah         iphone x                       70.9 x 143.6 x 7.7 мм
+iphone x                       2779   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  174 грама  2716 mah         iphone x                       70.9 x 143.6 x 7.7 мм
+iphone se                      699    не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      810    не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      810    не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      930    не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      1040   не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      1180   не       smartphone.bg  не        да  1gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      1190   не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone se                      1190   не       smartphone.bg  не        да  2gb  Apple  ios 9.3     12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a9 (2-ядрен, 1.84ghz, twister)                    113 грама  1810 mah         iphone se                      58.6 x 123.8 x 7.6 мм
+iphone 7                       1360   не       smartphone.bg  не        да  2gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     138 грама  1960 mah         iphone 7                       67.1 x 138.3 x 7.1 мм
+iphone 7                       1690   не       smartphone.bg  не        да  2gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     138 грама  1960 mah         iphone 7                       67.1 x 138.3 x 7.1 мм
+iphone 7                       1690   не       smartphone.bg  не        да  2gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     138 грама  1960 mah         iphone 7                       67.1 x 138.3 x 7.1 мм
+iphone se 32gb space gray      659             technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a9 64-bit                                         113 g      li-po 1642 mah   iphone se 32gb space gray      123.8x58.6x7.6mm     
+iphone se 32gb gold            659             technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a9 64-bit                                         113 g      li-po 1642 mah   iphone se 32gb gold            123.8x58.6x7.6mm     
+iphone se 32gb rose gold       659             technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a9 64-bit                                         113 g      li-po 1642 mah   iphone se 32gb rose gold       123.8x58.6x7.6mm     
+iphone 7 plus                  1530   не       smartphone.bg  не        да  3gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     188 грама  2900 mah         iphone 7 plus                  77.9 x 158.2 x 7.3 мм
+iphone 7 plus                  1760   не       smartphone.bg  не        да  2gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     188 грама  2900 mah         iphone 7 plus                  77.9 x 158.2 x 7.3 мм
+iphone 7 plus                  1780   не       smartphone.bg  не        да  3gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     188 грама  2900 mah         iphone 7 plus                  77.9 x 158.2 x 7.3 мм
+iphone 7 plus                  1940   не       smartphone.bg  не        да  3gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     188 грама  2900 mah         iphone 7 plus                  77.9 x 158.2 x 7.3 мм
+iphone 7 plus                  2630   не       smartphone.bg  не        да  3gb  Apple  ios 10.0.1  12 месеца международна гаранция (24 месеца гаранция за физически лица в българия)  apple a10 fusion (4-ядрен, 2.37ghz)                     188 грама  2900 mah         iphone 7 plus                  77.9 x 158.2 x 7.3 мм
+iphone 6 32gb space gray       739             technopolis    не        да  1gb  Apple  ios         12 месеца                                                                          1.4 ghz dual-core apple a8                              129g       li-po 1810 mah   iphone 6 32gb space gray       138.1x67x6.9mm       
+iphone 8                       1600   не       smartphone.bg  не        да  2gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  148 грама  1821 mah         iphone 8                       67.3 x 138.4 x 7.3 мм
+iphone 8                       1610   не       smartphone.bg  не        да  2gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  148 грама  1821 mah         iphone 8                       67.3 x 138.4 x 7.3 мм
+iphone 8                       1620   не       smartphone.bg  не        да  2gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  148 грама  1821 mah         iphone 8                       67.3 x 138.4 x 7.3 мм
+iphone 8                       1970   не       smartphone.bg  не        да  2gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  148 грама  1821 mah         iphone 8                       67.3 x 138.4 x 7.3 мм
+iphone 8                       1970   не       smartphone.bg  не        да  2gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  148 грама  1821 mah         iphone 8                       67.3 x 138.4 x 7.3 мм
+iphone 8 plus                  1820   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 8 plus                  1830   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 8 plus                  1869   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 8 plus                  2170   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 8 plus                  2180   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 8 plus                  2190   не       smartphone.bg  не        да  3gb  Apple  ios 11      12 месеца гаранция                                                                 apple a11 bionic (2-ядрен, monsoon & 4-ядрен, mistral)  202 грама  2691 mah         iphone 8 plus                  78.1 x 158.4 x 7.5 мм
+iphone 7 32gb gold             1219            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a10 64-bit                                        138 g      li-ion 1960 mah  iphone 7 32gb gold             138.3x67.1x7.1mm     
+iphone 7 32gb black            1219            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a10 64-bit                                        138 g      li-ion 1960 mah  iphone 7 32gb black            138.3x67.1x7.1mm     
+iphone 7 32gb rose gold        1219            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a10 64-bit                                        138 g      li-ion 1960 mah  iphone 7 32gb rose gold        138.3x67.1x7.1mm     
+iphone 7 32gb jet black        1219            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          apple a10 64-bit                                        138 g      li-ion 1960 mah  iphone 7 32gb jet black        138.3x67.1x7.1mm     
+iphone 8 64gb gold             1529            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 64gb gold             138.4x67.3x7.3 mm    
+iphone 8 64gb silver           1529            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 64gb silver           138.4x67.3x7.3 mm    
+iphone 8 64gb space gray       1529            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 64gb space gray       138.4x67.3x7.3 mm    
+iphone 8 plus 64gb gold        1799            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              202 g      li-ion 2691 mah  iphone 8 plus 64gb gold        158.4x78.3x7.5 mm    
+iphone 8 plus 64gb silver      1799            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              202 g      li-ion 2691 mah  iphone 8 plus 64gb silver      158.4x78.3x7.5 mm    
+iphone 8 256gb gold            1899            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 256gb gold            138.4x67.3x7.3 mm    
+iphone 8 256gb silver          1899            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 256gb silver          138.4x67.3x7.3 mm    
+iphone 8 256gb space gray      1899            technopolis    не        да  2gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              148 g      li-ion 1821 mah  iphone 8 256gb space gray      138.4x67.3x7.3 mm    
+iphone 8 plus 256gb gold       2169            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              202 g      li-ion 2691 mah  iphone 8 plus 256gb gold       158.4x78.3x7.5 mm    
+iphone 8 plus 256gb silver     2169            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              202 g      li-ion 2691 mah  iphone 8 plus 256gb silver     158.4x78.3x7.5 mm    
+iphone 8 plus 256g space gray  2169            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              202 g      li-ion 2691 mah  iphone 8 plus 256g space gray  158.4x78.3x7.5 mm    
+iphone x 64gb space gray       2199            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              174 g      li-ion 2716 mah  iphone x 64gb space gray       143.6x70.9x7.7 mm    
+iphone x 64gb silver           2199            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              174 g      li-ion 2716 mah  iphone x 64gb silver           143.6x70.9x7.7 mm    
+iphone x 256gb space gray      2599            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              174 g      li-ion 2716 mah  iphone x 256gb space gray      143.6x70.9x7.7 mm    
+iphone x 256gb silver          2599            technopolis    не        да  3gb  Apple  ios         12 месеца                                                                          a11 64-bit                                              174 g      li-ion 2716 mah  iphone x 256gb silver          143.6x70.9x7.7 mm    
+

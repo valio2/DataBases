@@ -1,16 +1,22 @@
-// const {
-//     Phone,
-//     Characteristics,
-//     phonesCharacteristics,
-// } = require('./crawlerDB/models');
-// const {
-//     buildPhoneCharacteristics,
-// } = require('./Commands/buildPhoneCharacteristics');
-// const command = process.argv[2].split(':');
-// const run = async () => {
-// };
-// run();
+require('console.table');
+const obj = {
+    model: '1054d black',
+    Price: 49,
+    Website: 'technopolis',
+    Dual_sim: 'да',
+    Cpu: 'не',
+    Os: 'не',
+    Battery: 'li-ion 800 mah',
+    Warranty: '24 месеца',
+    '4G': 'не',
+    Brand: 'alcatel',
+    Model: '1054d black',
+    Ram: '4mb',
+    Dimensions: '108x45x12.7 mm',
+};
 
-const ram = Number('g2.2G'.match(/\d+/g).join('.'));
-
-console.log(ram);
+console.table(obj);
+console.table({
+    name: 'joro',
+    value: 'pich',
+});

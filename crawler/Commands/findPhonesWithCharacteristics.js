@@ -6,6 +6,7 @@ const {
 const {
     buildPhoneCharacteristics,
 } = require('./buildPhoneCharacteristics');
+require('console.table');
 
 const findPhonesWithCharacteristics = async (chars) => {
     const phoneIds = await phonesCharacteristics.findAll({
@@ -25,8 +26,8 @@ const findPhonesWithCharacteristics = async (chars) => {
 
     const phones = await Promise.all(phonesInDb
         .map(async (phone) => await buildPhoneCharacteristics(phone)));
-
-    phones.forEach((phone) => console.log(phone));
+    console.table(phones);
+    // phones.forEach((phone) => console.log((phone)));
 };
 
 module.exports = {

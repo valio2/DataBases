@@ -1,7 +1,6 @@
 const {
     Phone,
     Characteristics,
-    phonesCharacteristics,
 } = require('../crawlerDB/models');
 
 const Op = require('../crawlerDB/node_modules/sequelize/lib/operators');
@@ -16,6 +15,8 @@ const {
 
 const command = process.argv[2].split(':');
 
+require('console.table');
+
 const run = async () => {
     if (command[0] === 'order-by-price') {
         let phones = await Phone.findAll();
@@ -23,8 +24,8 @@ const run = async () => {
         phones = await Promise.all(phones
             .sort((a, b) => a.Price - b.Price)
             .map(async (phone) => buildPhoneCharacteristics(phone)));
-
-        phones.forEach((phone) => console.log(phone));
+        // phones.forEach((phone) => console.log(phone));
+        console.table(phones);
     } else if (command[0] === 'search') {
         let chars;
         if (command[1] === 'has') {
@@ -52,7 +53,8 @@ const run = async () => {
                     .sort((a, b) => a.Price - b.Price)
                     .map(async (phone) => buildPhoneCharacteristics(phone)));
 
-                phones.forEach((phone) => console.log(phone));
+                // phones.forEach((phone) => console.log(phone));
+                console.table(phones);
             } else if (command[2] === 'lt') {
                 let phones = await Phone.findAll({
                     where: {
@@ -65,7 +67,8 @@ const run = async () => {
                     .sort((a, b) => a.Price - b.Price)
                     .map(async (phone) => buildPhoneCharacteristics(phone)));
 
-                phones.forEach((phone) => console.log(phone));
+                // phones.forEach((phone) => console.log(phone));
+                console.table(phones);
             }
         } else {
             let chars = await Characteristics.findAll({
@@ -101,7 +104,8 @@ const run = async () => {
                     let value = char.value;
                     if (command[1].toLowerCase().indexOf('ram') >= 0) {
                         if (command[3].toLowerCase().indexOf('gb') >= 0) {
-                            if (value.indexOf('mb') >= 0 || value.indexOf('не') >= 0) {
+                            if (value.indexOf('mb') >= 0 ||
+                                value.indexOf('не') >= 0) {
                                 return char.id;
                             }
                         } else {
