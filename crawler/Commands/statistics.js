@@ -30,18 +30,20 @@ const run = async () => {
         let chars;
         if (command[1] === 'has') {
             chars = await Characteristics.findAll()
-                .filter((char) => char.name.indexOf(command[2]) >= 0)
+                .filter((char) => char.name.toLowerCase()
+                    .indexOf(command[2].toLowerCase()) >= 0)
                 .filter((char) => char.value.indexOf('да') >= 0)
                 .map((char) => char.id);
         } else {
             chars = await Characteristics.findAll()
-                .filter((char) => char.value.indexOf(command[1]) >= 0)
+                .filter((char) => char.value.toLowerCase()
+                    .indexOf(command[1].toLowerCase()) >= 0)
                 .map((char) => char.id);
         }
         findPhonesWithCharacteristics(chars);
     } else if (command[0] === 'filter') {
-        if (command[1] === 'Price') {
-            if (command[2] === 'gt') {
+        if (command[1].toLowerCase() === 'price') {
+            if (command[2].toLowerCase() === 'gt') {
                 let phones = await Phone.findAll({
                     where: {
                         Price: {
@@ -55,7 +57,7 @@ const run = async () => {
 
                 // phones.forEach((phone) => console.log(phone));
                 console.table(phones);
-            } else if (command[2] === 'lt') {
+            } else if (command[2].toLowerCase() === 'lt') {
                 let phones = await Phone.findAll({
                     where: {
                         Price: {
@@ -76,7 +78,7 @@ const run = async () => {
                     name: command[1],
                 },
             });
-            if (command[2] === 'gt') {
+            if (command[2].toLowerCase() === 'gt') {
                 chars = chars.map((char) => {
                     let value = char.value;
                     if (command[1].toLowerCase().indexOf('ram') >= 0) {
@@ -99,7 +101,7 @@ const run = async () => {
                     }
                     return null;
                 });
-            } else if (command[2] === 'lt') {
+            } else if (command[2].toLowerCase() === 'lt') {
                 chars = chars.map((char) => {
                     let value = char.value;
                     if (command[1].toLowerCase().indexOf('ram') >= 0) {
